@@ -1,4 +1,4 @@
-/* Shared application service. Runs unchanged in the Android app and browser preview. */
+/* Shared is application service. Runs unchanged in the Android app and browser preview. */
 (function (root) {
   'use strict';
   const clone = x => JSON.parse(JSON.stringify(x));
