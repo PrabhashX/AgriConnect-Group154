@@ -1,54 +1,73 @@
-# AgriConnect Android app
+# AgriConnect
 
-AgriConnect is the IT3060 HCI Group WE.3.1-154 agricultural marketplace demonstration. It provides three login roles: **buyer**, **farmer** and **delivery rider**. Kotlin hosts the bundled HTML/CSS/JavaScript interface in Android WebView; SQLite stores data on the device. The implementation and initial evidence were prepared with AI assistance. Each team member must review, understand and document work they actually perform.
+AgriConnect is an agricultural marketplace app for the **IT3060 HCI project, Group WE.3.1-154**. Buyers can order produce, farmers can manage their listings and orders, and delivery riders can handle deliveries. Each role has its own login and screens.
 
-## Open and run
+The app uses Kotlin with an Android WebView for the HTML, CSS and JavaScript screens. Records are saved locally using SQLite. AI assistance was used to prepare the app and its initial automated test evidence.
 
-1. Clone this repository with GitHub Desktop, or open the selected local folder in Android Studio using **File → Open**. Select the folder containing `settings.gradle`.
-2. Select **JDK 21** under **File → Settings → Build, Execution, Deployment → Build Tools → Gradle → Gradle JDK**. Then sync. Gradle 8.13 in this project does not run on Java 25.
-3. Ensure SDK **Platform 35** and **Build-Tools 35.0.0** are installed. Initial dependency resolution needs Internet.
-4. Use **Tools → Device Manager** to start an Android 15 / API 35 virtual phone. The prepared computer already has **AgriConnect API 35**.
-5. Select **app** and the virtual phone in the toolbar, then click **Run ▶** or press **Shift+F10**. Open **Running Devices** to see the app in Android Studio.
+## Running the app in Android Studio
 
-The prepared computer uses Java 21 from `C:\Users\nimna\Documents\Codex\2026-10-08\we-have-to-complete-assignmet-3\work\java21\jdk-21.0.12.1+1`, and its virtual phone uses the system image under that workspace's `work/android-image-35`. Keep those local tool folders if reusing the prepared configuration. Other computers should install/select their own JDK and download their own emulator image. SDK paths, IDE settings and caches are ignored by Git.
+1. Clone the repository using GitHub Desktop, or use **File → Open** in Android Studio to open the project folder. Choose the folder that contains `settings.gradle`.
+2. Go to **File → Settings → Build, Execution, Deployment → Build Tools → Gradle** and select **JDK 21** as the Gradle JDK. Then sync the project. This project's Gradle version does not support Java 25.
+3. Make sure **Android SDK Platform 35** and **Build-Tools 35.0.0** are installed. You will need an internet connection for the first sync.
+4. Open **Tools → Device Manager** and start an Android 15 / API 35 emulator. The existing setup on Nimna's computer already has the **AgriConnect API 35** emulator.
+5. Select **app** and the emulator in the toolbar, then click **Run ▶** or press **Shift+F10**. The app will appear in **Running Devices**.
 
-This is a WebView app; Compose/XML Preview does not render its HTML screens. Use the live emulator or open `app/src/main/assets/index.html` in a browser. Browser preview data and Android data are separate.
+On Nimna's existing setup, Android Studio points to the Java and emulator files in the Codex workspace's `work` folder. Keep those files if you are using that setup. On another computer, select your own JDK 21 and download an emulator image. Local SDK paths and IDE settings are excluded from Git.
 
-## APK and demonstration
+You can also open this project in VS Code to edit the files. For a quick browser preview, open `app/src/main/assets/index.html`. The screens use HTML, so Android Studio's Compose or XML Preview will not display them. Data saved in the browser is separate from data saved in the Android app.
 
-The current installable demonstration APK is **AgriConnect.apk**. In Android Studio, generate a fresh one with **Build → Generate App Bundles or APKs → Generate APKs** (older versions: **Build APK(s)**). It appears at `app/build/outputs/apk/debug/app-debug.apk`. Generate APKs provides the installable file; the normal Run action may create a `testOnly` APK.
+## Trying the three roles
 
-The included APK has a verified Android debug-key v2 signature and ZIP alignment. It was installed directly on the API 35 emulator. It uses a different signing key from the earlier offline APK; a device with that old package may report an incompatible signature. Uninstalling clears local data, so preserve needed information before choosing that route.
+Scroll down on the login screen and choose **Buyer**, **Farmer** or **Rider** to use a demo account. The demo password is **Demo@1234**. Sign out from Profile before switching roles.
 
-Scroll down on the login page and use the **Buyer**, **Farmer** or **Rider** demo button. Password: **Demo@1234**. Sign out through Profile before switching roles.
+To try a complete order:
 
-1. Buyer: open Vine tomatoes, add 2 kg and check out using cash on delivery. Total: **LKR 990** (840 produce + 150 delivery).
-2. Farmer: find the same order in Orders and mark it Ready for pickup. Create, edit, pause and delete a demonstration listing.
-3. Rider: accept the ready job, confirm pickup, start delivery and confirm Delivered with cash collection.
-4. Buyer: read Delivered/Collected, save a review and test support requests. Close and reopen the Android app; saved records remain.
+1. **Buyer:** open Vine tomatoes, add 2 kg to the basket and choose cash on delivery. The total is **LKR 990**: LKR 840 for the produce and LKR 150 for delivery.
+2. **Farmer:** open Orders, find that order and mark it **Ready for pickup**. You can also try adding, editing, pausing and deleting a listing.
+3. **Rider:** accept the delivery, confirm pickup, start the delivery and mark it **Delivered** with cash collected.
+4. **Buyer:** check the updated order status, add a review and try the support request screens. Close and reopen the Android app to check that the records are still saved.
 
-## Source locations
+## Installing the APK
 
-| File | Purpose |
+The ready-to-install file is **AgriConnect.apk**.
+
+To create a new APK in Android Studio, select **Build → Generate App Bundles or APKs → Generate APKs**. In some versions, the option is called **Build APK(s)**. The output will be at `app/build/outputs/apk/debug/app-debug.apk`.
+
+The included APK was checked for signing and ZIP alignment, then installed on the API 35 emulator. It uses a different signing key from the earlier offline build. If you have that older version installed, Android may refuse the update. Uninstalling the old version clears its saved data, so keep any information you need first.
+
+## Main project files
+
+| File | What it contains |
 |---|---|
-| `app/src/main/assets/app.js` | Role screens and interaction handlers |
-| `app/src/main/assets/app.css` | Visual design and responsive layout |
-| `app/src/main/assets/domain.js` | Permissions, CRUD, validation and order rules |
-| `app/src/main/java/lk/agriconnect/app/MainActivity.kt` | Android WebView, trusted local assets and SQLite bridge |
-| `app/src/main/AndroidManifest.xml` | Source manifest shared with the offline build |
-| `app/build.gradle` | Android configuration and source-manifest adaptation |
+| `app/src/main/assets/app.js` | Screens and user interactions |
+| `app/src/main/assets/app.css` | Colours, spacing and screen layouts |
+| `app/src/main/assets/domain.js` | CRUD operations, validation, permissions and order rules |
+| `app/src/main/java/lk/agriconnect/app/MainActivity.kt` | Android WebView and SQLite connection |
+| `app/src/main/AndroidManifest.xml` | Android app configuration |
+| `app/build.gradle` | Android build settings |
 
-## Test evidence
+## Testing
 
-The recorded checks are **38 service cases**, **15 browser checks**, **10 member CRUD checks** and **8 installed Android emulator checks**, all passing. `tests/evidence` contains the original execution records, APK metadata and nine native emulator screenshots. Native NT01-NT08 cover login, checkout, support/listing CRUD, the three-role order, reviews and SQLite persistence after a complete process restart. The delivered APK matches the installed package hash. This is agent-executed automated evidence; participant sessions and physical-phone testing are separate.
+The recorded automated checks all passed:
 
-Service checks with Node 20+:
+- 38 service test cases
+- 15 browser checks
+- 10 CRUD checks for the allocated interfaces
+- 8 checks on the installed Android app
+
+The results and nine emulator screenshots are in `tests/evidence`. The Android checks cover login, checkout, listings, support requests, the buyer–farmer–rider order flow, reviews and saved data after restarting the app. The included APK matches the one used for those Android checks.
+
+These are automated results. Participant usability testing and testing on a physical phone are separate activities.
+
+To run the service tests, use Node.js 20 or later from the project folder:
 
 ```powershell
 node --test tests/domain.test.cjs
 ```
 
-Browser tests need Playwright and Chrome. Set `PLAYWRIGHT_MODULE`, `CHROME_PATH` and `APP_URL` as needed. Native checks require the running debug app at its login screen, ADB and Playwright Android support. They create a demonstration order without clearing data:
+Browser tests need Playwright and Chrome. Set `PLAYWRIGHT_MODULE`, `CHROME_PATH` and `APP_URL` for your setup where needed.
+
+The Android test script needs ADB, Playwright's Android support and the running debug app at its login screen. Replace the paths below with the paths on your computer:
 
 ```powershell
 $env:ADB_PATH='C:\actual\Android\Sdk\platform-tools\adb.exe'
@@ -56,16 +75,24 @@ $env:PLAYWRIGHT_MODULE='C:\actual\node_modules\playwright'
 node tests/native-android.test.cjs
 ```
 
-Set `ANDROID_SERIAL` if the device is not `emulator-5554`. Ensure enough tomato stock for a new 2 kg order. The standard Gradle command is `gradlew.bat assembleDebug` with a valid JDK 21 and SDK configuration. The restricted command environment failed in AAPT2 linking during preparation; the actual Android Studio build succeeded. `build.ps1` retains the original offline SDK-tool route.
+Set `ANDROID_SERIAL` if your emulator is not `emulator-5554`. The test creates a new 2 kg tomato order, so make sure enough stock is available.
 
-## Team contributions and submission
+The Android Studio build was verified successfully. For a command-line build with JDK 21 and the SDK configured, use `gradlew.bat assembleDebug`. The earlier command-line attempt in the restricted environment stopped during AAPT2 linking. The original offline build script is still available as `build.ps1`.
 
-See **CONTRIBUTING.md** for the approved role allocation and each member's own commit workflow. The initial import/setup commits record repository preparation under the repository owner's configured identity. They do not establish that all four members independently implemented their assigned interfaces. Future members should commit only changes or reviews they actually perform through their own accounts.
+## Team work and submission files
 
-To display recorded author history, use GitHub Desktop's **History** tab, the GitHub repository's commits view, or the read-only `tests/show-history.ps1` helper.
+The role allocation and steps for making team commits are in **CONTRIBUTING.md**. Each member should use their own account to commit the changes or review notes they actually complete. The initial commits cover importing the source, setting up the build and adding test evidence.
 
-The final report, editable Word file, screen gallery and simulated evaluation examples are delivered in the separate final ZIP. This repository contains the working app, APK and functional evidence.
+You can view the commit history in GitHub Desktop's **History** tab, on GitHub, or with `tests/show-history.ps1`.
 
-## Scope
+This repository contains the app source, APK and functional test evidence. The report, editable Word file, screen gallery and simulated evaluation examples are in the separate final submission ZIP.
 
-Orders are shared between roles on one device. Different phones do not synchronize. Passwords are salted PBKDF2-HMAC-SHA256 hashes; role/ownership checks protect local actions. Orders snapshot purchased prices, recheck stock and restore stock once on cancellation. One farmer per order is enforced. Demo payments are simulated; cash collection is a local status; no real payment, live GPS or remote support service is connected. Verification stays Pending, and Sinhala translation is partial. The final report documents these deviations.
+## Current limitations
+
+The app works locally. Buyers, farmers and riders share records on the same device; different phones do not sync through an online database.
+
+Payments are demonstrations, and cash collection is recorded as a local status. Delivery progress is updated manually, without live GPS. Support requests are stored locally. Account verification remains **Pending**, and Sinhala translation is only partly complete.
+
+Passwords are stored as salted PBKDF2-HMAC-SHA256 hashes, and role checks restrict access to actions. Each order is limited to one farmer. The app saves the price at checkout, checks stock again and restores it once if an order is cancelled.
+
+The report explains these limitations and the changes from the Milestone 2 prototype.
