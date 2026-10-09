@@ -1,0 +1,1 @@
+{"name":"agriconnect-academic-app","version":"1.0.0","private":true,"description":"Offline Android agricultural marketplace with buyer, farmer and delivery rider roles","scripts":{"test":"node --test tests/domain.test.cjs"},"engines":{"node":">=20"}}

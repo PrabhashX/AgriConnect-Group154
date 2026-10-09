@@ -1,0 +1,9 @@
+build/
+.idea/
+*.iml
+local.properties
+*.apk
+*.apk.idsig
+*.jks
+node_modules/
+test-results/
