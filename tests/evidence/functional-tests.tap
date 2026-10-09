@@ -1,0 +1,238 @@
+TAP version 13
+# Subtest: FT01 Registration creates a role-bound account with a salted hash
+ok 1 - FT01 Registration creates a role-bound account with a salted hash
+  ---
+  duration_ms: 127.3896
+  type: 'test'
+  ...
+# Subtest: FT02 Correct account and role authenticate
+ok 2 - FT02 Correct account and role authenticate
+  ---
+  duration_ms: 29.5922
+  type: 'test'
+  ...
+# Subtest: FT03 Wrong password and wrong role are rejected
+ok 3 - FT03 Wrong password and wrong role are rejected
+  ---
+  duration_ms: 25.348
+  type: 'test'
+  ...
+# Subtest: FT04 Duplicate email, invalid email and short passwords are rejected
+ok 4 - FT04 Duplicate email, invalid email and short passwords are rejected
+  ---
+  duration_ms: 0.5144
+  type: 'test'
+  ...
+# Subtest: FT05 Logout prevents access to protected services
+ok 5 - FT05 Logout prevents access to protected services
+  ---
+  duration_ms: 0.3934
+  type: 'test'
+  ...
+# Subtest: FT06 Profile reads and updates persist
+ok 6 - FT06 Profile reads and updates persist
+  ---
+  duration_ms: 0.3321
+  type: 'test'
+  ...
+# Subtest: FT07 Search, category filtering and price sort return correct products
+ok 7 - FT07 Search, category filtering and price sort return correct products
+  ---
+  duration_ms: 9.0649
+  type: 'test'
+  ...
+# Subtest: FT08 Saved products can be created and removed
+ok 8 - FT08 Saved products can be created and removed
+  ---
+  duration_ms: 0.8835
+  type: 'test'
+  ...
+# Subtest: FT09 Buyer cannot create farmer listings
+ok 9 - FT09 Buyer cannot create farmer listings
+  ---
+  duration_ms: 0.306
+  type: 'test'
+  ...
+# Subtest: FT10 Listing create, read, update and delete succeed
+ok 10 - FT10 Listing create, read, update and delete succeed
+  ---
+  duration_ms: 0.6695
+  type: 'test'
+  ...
+# Subtest: FT11 Negative price, invalid stock and future harvest are rejected
+ok 11 - FT11 Negative price, invalid stock and future harvest are rejected
+  ---
+  duration_ms: 0.3097
+  type: 'test'
+  ...
+# Subtest: FT12 Another farmer cannot edit or delete an owned listing
+ok 12 - FT12 Another farmer cannot edit or delete an owned listing
+  ---
+  duration_ms: 24.3305
+  type: 'test'
+  ...
+# Subtest: FT13 Pausing a listing removes it from buyer discovery
+ok 13 - FT13 Pausing a listing removes it from buyer discovery
+  ---
+  duration_ms: 0.5225
+  type: 'test'
+  ...
+# Subtest: FT14 Basket create, read, update and delete succeed
+ok 14 - FT14 Basket create, read, update and delete succeed
+  ---
+  duration_ms: 0.2507
+  type: 'test'
+  ...
+# Subtest: FT15 Basket rejects excess stock and fractional pieces
+ok 15 - FT15 Basket rejects excess stock and fractional pieces
+  ---
+  duration_ms: 0.1731
+  type: 'test'
+  ...
+# Subtest: FT16 Valid two-decimal kilogram quantities are accepted
+ok 16 - FT16 Valid two-decimal kilogram quantities are accepted
+  ---
+  duration_ms: 0.1539
+  type: 'test'
+  ...
+# Subtest: FT17 Checkout calculates total, reserves stock and empties basket
+ok 17 - FT17 Checkout calculates total, reserves stock and empties basket
+  ---
+  duration_ms: 0.5403
+  type: 'test'
+  ...
+# Subtest: FT18 Cash and demo payment have distinct truthful statuses
+ok 18 - FT18 Cash and demo payment have distinct truthful statuses
+  ---
+  duration_ms: 0.2911
+  type: 'test'
+  ...
+# Subtest: FT19 Empty basket and incomplete address are rejected
+ok 19 - FT19 Empty basket and incomplete address are rejected
+  ---
+  duration_ms: 0.1533
+  type: 'test'
+  ...
+# Subtest: FT20 Changed stock is revalidated before checkout
+ok 20 - FT20 Changed stock is revalidated before checkout
+  ---
+  duration_ms: 0.1538
+  type: 'test'
+  ...
+# Subtest: FT21 Cancellation restores reserved stock and prevents repetition
+ok 21 - FT21 Cancellation restores reserved stock and prevents repetition
+  ---
+  duration_ms: 0.3815
+  type: 'test'
+  ...
+# Subtest: FT22 Buyer updates delivery instructions before pickup
+ok 22 - FT22 Buyer updates delivery instructions before pickup
+  ---
+  duration_ms: 0.9582
+  type: 'test'
+  ...
+# Subtest: FT23 Farmer can mark an owned order ready
+ok 23 - FT23 Farmer can mark an owned order ready
+  ---
+  duration_ms: 0.3157
+  type: 'test'
+  ...
+# Subtest: FT24 Rider only discovers ready unclaimed jobs
+ok 24 - FT24 Rider only discovers ready unclaimed jobs
+  ---
+  duration_ms: 0.201
+  type: 'test'
+  ...
+# Subtest: FT25 Complete buyer–farmer–rider delivery workflow succeeds
+ok 25 - FT25 Complete buyer–farmer–rider delivery workflow succeeds
+  ---
+  duration_ms: 0.3793
+  type: 'test'
+  ...
+# Subtest: FT26 Buyer and unassigned rider cannot advance an order
+ok 26 - FT26 Buyer and unassigned rider cannot advance an order
+  ---
+  duration_ms: 0.2278
+  type: 'test'
+  ...
+# Subtest: FT27 A claimed delivery is hidden from other riders
+ok 27 - FT27 A claimed delivery is hidden from other riders
+  ---
+  duration_ms: 26.9802
+  type: 'test'
+  ...
+# Subtest: FT28 Instructions lock after pickup and cancellation locks after preparation
+ok 28 - FT28 Instructions lock after pickup and cancellation locks after preparation
+  ---
+  duration_ms: 0.4829
+  type: 'test'
+  ...
+# Subtest: FT29 Support request create, read, update and withdraw succeed
+ok 29 - FT29 Support request create, read, update and withdraw succeed
+  ---
+  duration_ms: 0.4112
+  type: 'test'
+  ...
+# Subtest: FT30 Support requests cannot expose another account or foreign order
+ok 30 - FT30 Support requests cannot expose another account or foreign order
+  ---
+  duration_ms: 0.2996
+  type: 'test'
+  ...
+# Subtest: FT31 Farm verification CRUD preserves a pending, unverified state
+ok 31 - FT31 Farm verification CRUD preserves a pending, unverified state
+  ---
+  duration_ms: 0.2166
+  type: 'test'
+  ...
+# Subtest: FT32 Buyer cannot submit farm verification
+ok 32 - FT32 Buyer cannot submit farm verification
+  ---
+  duration_ms: 0.1334
+  type: 'test'
+  ...
+# Subtest: FT33 Reviews require delivery and support update and deletion
+ok 33 - FT33 Reviews require delivery and support update and deletion
+  ---
+  duration_ms: 0.5024
+  type: 'test'
+  ...
+# Subtest: FT34 Deleting a listing preserves historical order snapshots
+ok 34 - FT34 Deleting a listing preserves historical order snapshots
+  ---
+  duration_ms: 0.23
+  type: 'test'
+  ...
+# Subtest: FT35 Order and basket data survive service reload without keeping a session
+ok 35 - FT35 Order and basket data survive service reload without keeping a session
+  ---
+  duration_ms: 0.2314
+  type: 'test'
+  ...
+# Subtest: FT36 Export omits password hashes and salts
+ok 36 - FT36 Export omits password hashes and salts
+  ---
+  duration_ms: 0.1985
+  type: 'test'
+  ...
+# Subtest: FT37 Multiple farmers in a basket are rejected before stock changes
+ok 37 - FT37 Multiple farmers in a basket are rejected before stock changes
+  ---
+  duration_ms: 0.1934
+  type: 'test'
+  ...
+# Subtest: FT38 Invalid support content and invalid review ratings are rejected
+ok 38 - FT38 Invalid support content and invalid review ratings are rejected
+  ---
+  duration_ms: 0.2569
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 377.0058

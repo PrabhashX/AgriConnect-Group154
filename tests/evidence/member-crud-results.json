@@ -1,0 +1,128 @@
+{
+  "executedAt": "2026-10-08T14:49:51.074Z",
+  "environment": "Automated mobile Chrome execution of packaged UI; native phone runtime and human authorship not verified",
+  "results": [
+    {
+      "id": "MC01",
+      "member": "DEWRANGA K K",
+      "interface": "Buyer catalogue, detail and comparison",
+      "operations": [
+        "Read",
+        "Create saved association",
+        "Delete saved association"
+      ],
+      "status": "PASS",
+      "durationMs": 3958
+    },
+    {
+      "id": "MC02",
+      "member": "DEWRANGA K K",
+      "interface": "Buyer basket, checkout and order instructions",
+      "operations": [
+        "Create",
+        "Read",
+        "Update",
+        "Delete basket line"
+      ],
+      "status": "PASS",
+      "durationMs": 2902
+    },
+    {
+      "id": "MC03",
+      "member": "PRABHASHWARA S N",
+      "interface": "Farmer listings and create/edit form",
+      "operations": [
+        "Create",
+        "Read",
+        "Update",
+        "Delete"
+      ],
+      "status": "PASS",
+      "durationMs": 1786
+    },
+    {
+      "id": "MC04",
+      "member": "PRABHASHWARA S N",
+      "interface": "Farmer order list and fulfilment detail",
+      "operations": [
+        "Read",
+        "Update"
+      ],
+      "status": "PASS",
+      "durationMs": 590
+    },
+    {
+      "id": "MC05",
+      "member": "PERERA P A L R",
+      "interface": "Rider available jobs and pickup details",
+      "operations": [
+        "Read",
+        "Update assignment"
+      ],
+      "status": "PASS",
+      "durationMs": 545
+    },
+    {
+      "id": "MC06",
+      "member": "PERERA P A L R",
+      "interface": "Rider assigned delivery list and progress",
+      "operations": [
+        "Read",
+        "Update"
+      ],
+      "status": "PASS",
+      "durationMs": 884
+    },
+    {
+      "id": "MC07",
+      "member": "SEYON S",
+      "interface": "Shared account profile",
+      "operations": [
+        "Read",
+        "Update"
+      ],
+      "status": "PASS",
+      "durationMs": 717
+    },
+    {
+      "id": "MC08",
+      "member": "SEYON S",
+      "interface": "Shared support requests and form",
+      "operations": [
+        "Create",
+        "Read",
+        "Update",
+        "Delete"
+      ],
+      "status": "PASS",
+      "durationMs": 1156
+    },
+    {
+      "id": "MC09",
+      "member": "PRABHASHWARA S N",
+      "interface": "Additional farmer verification request",
+      "operations": [
+        "Create",
+        "Read",
+        "Update",
+        "Delete"
+      ],
+      "status": "PASS",
+      "durationMs": 854
+    },
+    {
+      "id": "MC10",
+      "member": "DEWRANGA K K",
+      "interface": "Additional delivered-order review",
+      "operations": [
+        "Create",
+        "Read",
+        "Update",
+        "Delete"
+      ],
+      "status": "PASS",
+      "durationMs": 3866
+    }
+  ],
+  "scriptErrors": []
+}

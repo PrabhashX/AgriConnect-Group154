@@ -1,0 +1,83 @@
+{
+  "executedAt": "2026-10-09T07:51:46.079Z",
+  "kind": "agent-executed-native-android-checks",
+  "environment": "Android Studio Gradle debug build on Android 15 / API 35 AOSP x86_64 emulator",
+  "device": {
+    "serial": "emulator-5554",
+    "model": "Android SDK built for x86_64"
+  },
+  "uiDriver": "Playwright Android connected to installed app WebView; screenshots from emulator display",
+  "storage": "Actual Android NativeStore / SQLite",
+  "participantSessions": 0,
+  "orderId": "AC109",
+  "processRestart": {
+    "pidBefore": "4779",
+    "pidAfter": "5428"
+  },
+  "results": [
+    {
+      "id": "NT01",
+      "name": "Installed Android app loads local assets, role feedback and native SQLite bridge",
+      "status": "PASS",
+      "durationMs": 9025
+    },
+    {
+      "id": "NT02",
+      "name": "Buyer creates a 2 kg cash-on-delivery order totaling LKR 990",
+      "status": "PASS",
+      "durationMs": 9515
+    },
+    {
+      "id": "NT03",
+      "name": "Native support request create/read/update/delete persists each change",
+      "status": "PASS",
+      "durationMs": 6643
+    },
+    {
+      "id": "NT04",
+      "name": "Farmer publishes, edits, pauses and deletes an Android listing",
+      "status": "PASS",
+      "durationMs": 18175
+    },
+    {
+      "id": "NT05",
+      "name": "Farmer marks the buyer order ready for pickup",
+      "status": "PASS",
+      "durationMs": 4245
+    },
+    {
+      "id": "NT06",
+      "name": "Rider accepts, picks up and delivers the same order with cash collection",
+      "status": "PASS",
+      "durationMs": 10650
+    },
+    {
+      "id": "NT07",
+      "name": "Buyer reads delivery result and saves an Android review",
+      "status": "PASS",
+      "durationMs": 14538
+    },
+    {
+      "id": "NT08",
+      "name": "SQLite order and review survive a complete app process restart",
+      "status": "PASS",
+      "durationMs": 15352
+    }
+  ],
+  "scriptErrors": [],
+  "sqliteInspection": {
+    "integrityCheck": "ok",
+    "tablesAndRowCounts": {
+      "accounts": 3,
+      "products": 6,
+      "orders": 3,
+      "tickets": 0,
+      "reviews": 3,
+      "carts": 1,
+      "metadata": 1
+    },
+    "testedOrderStored": true,
+    "testedReviewStored": true,
+    "performedAfterProcessRestart": true
+  }
+}

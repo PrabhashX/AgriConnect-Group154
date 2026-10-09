@@ -1,0 +1,23 @@
+{
+  "executedDate": "2026-10-09",
+  "buildDriver": "Android Studio native Build/Run UI",
+  "gradle": "8.13",
+  "androidGradlePlugin": "8.11.2",
+  "kotlinPlugin": "2.3.0",
+  "gradleJdk": "Microsoft OpenJDK 21.0.12",
+  "compileSdk": 35,
+  "buildTools": "35.0.0",
+  "minSdk": 26,
+  "targetSdk": 34,
+  "variant": "debug",
+  "runBuild": "PASS: app launched in Running Devices",
+  "standaloneApkBuild": "PASS: Generate APKs completed successfully",
+  "testOnly": false,
+  "signature": "Android debug key; verified APK v2 signature",
+  "alignment": "PASS",
+  "apkSHA256": "db19eec7b6e190051e19d72dce0e1d803ba43b831385239bb1f66793faeb5e20",
+  "installedApkMatchesDeliveredApk": true,
+  "sandboxCommandLineBuild": "Failed in AAPT2 linking; native Android Studio build succeeded",
+  "nativeChecks": "native-android-results.json",
+  "participantSessions": 0
+}

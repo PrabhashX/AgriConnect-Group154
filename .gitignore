@@ -12,3 +12,6 @@ test-results/
 .kotlin/
 local.properties
 app/build/
+
+# Keep only the final installable APK under version control.
+!AgriConnect.apk

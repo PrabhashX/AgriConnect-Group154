@@ -1,0 +1,97 @@
+{
+  "executedAt": "2026-10-08T14:51:17.994Z",
+  "environment": "Mobile Chrome browser execution of bundled UI; Android device runtime not tested",
+  "results": [
+    {
+      "id": "UI01",
+      "name": "Role selection and incorrect login show inline feedback",
+      "status": "PASS",
+      "durationMs": 323
+    },
+    {
+      "id": "UI02",
+      "name": "Buyer login opens marketplace with six products",
+      "status": "PASS",
+      "durationMs": 255
+    },
+    {
+      "id": "UI03",
+      "name": "Search and price comparison show actual products",
+      "status": "PASS",
+      "durationMs": 2140
+    },
+    {
+      "id": "UI04",
+      "name": "Buyer selects 2 kg and sees correct basket total",
+      "status": "PASS",
+      "durationMs": 633
+    },
+    {
+      "id": "UI05",
+      "name": "Checkout creates a cash-on-delivery order with distinct payment status",
+      "status": "PASS",
+      "durationMs": 311
+    },
+    {
+      "id": "UI06",
+      "name": "Buyer support CRUD persists and displays request status",
+      "status": "PASS",
+      "durationMs": 964
+    },
+    {
+      "id": "UI07",
+      "name": "Logout and farmer login display role-specific listing controls",
+      "status": "PASS",
+      "durationMs": 1380
+    },
+    {
+      "id": "UI08",
+      "name": "Farmer publishes, edits, pauses and deletes a listing",
+      "status": "PASS",
+      "durationMs": 1482
+    },
+    {
+      "id": "UI09",
+      "name": "Verification request remains explicitly pending",
+      "status": "PASS",
+      "durationMs": 635
+    },
+    {
+      "id": "UI10",
+      "name": "Farmer prepares the buyer order and releases a delivery job",
+      "status": "PASS",
+      "durationMs": 641
+    },
+    {
+      "id": "UI11",
+      "name": "Rider discovers and accepts the available delivery",
+      "status": "PASS",
+      "durationMs": 1279
+    },
+    {
+      "id": "UI12",
+      "name": "Rider updates pickup and delivery stages, confirming cash collection",
+      "status": "PASS",
+      "durationMs": 619
+    },
+    {
+      "id": "UI13",
+      "name": "Buyer sees completed order and can submit a review",
+      "status": "PASS",
+      "durationMs": 3059
+    },
+    {
+      "id": "UI14",
+      "name": "Sinhala navigation toggle works and saved data survives reload",
+      "status": "PASS",
+      "durationMs": 1467
+    },
+    {
+      "id": "UI15",
+      "name": "Mobile screens have no horizontal overflow or script exceptions",
+      "status": "PASS",
+      "durationMs": 661
+    }
+  ],
+  "scriptErrors": []
+}

@@ -1,0 +1,88 @@
+Current final APK: Android Studio Gradle debug build
+Build/Run and Generate APKs succeeded through Android Studio UI on 9 October 2026.
+APK installed with adb install -r without the test-only flag. Installed and delivered APK hashes match.
+Restricted command-line Gradle attempt failed during AAPT2 linking.
+
+{
+  "executedDate": "2026-10-09",
+  "buildDriver": "Android Studio native Build/Run UI",
+  "gradle": "8.13",
+  "androidGradlePlugin": "8.11.2",
+  "kotlinPlugin": "2.3.0",
+  "gradleJdk": "Microsoft OpenJDK 21.0.12",
+  "compileSdk": 35,
+  "buildTools": "35.0.0",
+  "minSdk": 26,
+  "targetSdk": 34,
+  "variant": "debug",
+  "runBuild": "PASS: app launched in Running Devices",
+  "standaloneApkBuild": "PASS: Generate APKs completed successfully",
+  "testOnly": false,
+  "signature": "Android debug key; verified APK v2 signature",
+  "alignment": "PASS",
+  "apkSHA256": "db19eec7b6e190051e19d72dce0e1d803ba43b831385239bb1f66793faeb5e20",
+  "installedApkMatchesDeliveredApk": true,
+  "sandboxCommandLineBuild": "Failed in AAPT2 linking; native Android Studio build succeeded",
+  "nativeChecks": "native-android-results.json",
+  "participantSessions": 0
+}
+
+APK badging
+package: name='lk.agriconnect.app' versionCode='1' versionName='1.0' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+sdkVersion:'26'
+targetSdkVersion:'34'
+application-label:'AgriConnect'
+application-icon-160:'res/drawable/ic_launcher.xml'
+application: label='AgriConnect' icon='res/drawable/ic_launcher.xml'
+application-debuggable
+launchable-activity: name='lk.agriconnect.app.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+main
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '160'
+
+Signature verification
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: C=US, O=Android, CN=Android Debug
+Signer #1 certificate SHA-256 digest: 0455b91dc9d80f26cb7bcb7277b8afdd019340f24472c9c0f87a8fdf0844a58d
+Signer #1 certificate SHA-1 digest: aba7ca1a8a9aa4409ecb20bea1c8953674931fc1
+Signer #1 certificate MD5 digest: cda03032c24494441c3724f37871de8c
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: c6378f53d8f6495261dc2af157b7d0624199c82fde8a65371d2975e88c695fab
+Signer #1 public key SHA-1 digest: 4d9a233e296441522a1f3d9f2c7168f24879375f
+Signer #1 public key MD5 digest: 44c78453a6e8558af9fee6635a80ae6e
+
+Alignment verification
+Verifying alignment of C:\Users\nimna\Documents\Codex\2026-10-08\we-have-to-complete-assignmet-3\outputs\AgriConnect_FINAL\AgriConnect_AndroidStudio\app\build\outputs\apk\debug\app-debug.apk (4)...
+      44 assets/app.css (OK - compressed)
+    4283 assets/app.js (OK - compressed)
+   19118 assets/domain.js (OK - compressed)
+   24618 assets/index.html (OK - compressed)
+   25038 AndroidManifest.xml (OK - compressed)
+   25966 res/drawable/ic_launcher.xml (OK - compressed)
+   26484 resources.arsc (OK)
+   27390 kotlin/annotation/annotation.kotlin_builtins (OK - compressed)
+   28008 kotlin/collections/collections.kotlin_builtins (OK - compressed)
+   29971 kotlin/concurrent/atomics/atomics.kotlin_builtins (OK - compressed)
+   31156 kotlin/coroutines/coroutines.kotlin_builtins (OK - compressed)
+   31344 kotlin/internal/internal.kotlin_builtins (OK - compressed)
+   31762 kotlin/kotlin.kotlin_builtins (OK - compressed)
+   37329 kotlin/ranges/ranges.kotlin_builtins (OK - compressed)
+   38777 kotlin/reflect/reflect.kotlin_builtins (OK - compressed)
+   40266 classes2.dex (OK - compressed)
+   41072 META-INF/com/android/build/gradle/app-metadata.properties (OK - compressed)
+   41167 classes3.dex (OK - compressed)
+   49177 classes.dex (OK - compressed)
+Verification succesful
