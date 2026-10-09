@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+// The shared source manifest also supports the existing offline SDK build.
+// Gradle owns package/version/SDK metadata, so adapt that manifest during the build.
+def generatedManifest = layout.buildDirectory.file('generated/agriconnect/AndroidManifest.xml')
+tasks.register('prepareAppManifest') {
+    inputs.file('src/main/AndroidManifest.xml')
+    outputs.file(generatedManifest)
+    doLast {
+        def content = file('src/main/AndroidManifest.xml').getText('UTF-8')
+                .replaceAll(/\s+package="[^"]*"/, '')
+                .replaceAll(/\s+android:versionCode="[^"]*"/, '')
+                .replaceAll(/\s+android:versionName="[^"]*"/, '')
+                .replaceAll(/\s*<uses-sdk[^>]*\/>/, '')
+        def destination = generatedManifest.get().asFile
+        destination.parentFile.mkdirs()
+        destination.setText(content, 'UTF-8')
+    }
+}
+
+android {
+    namespace 'lk.agriconnect.app'
+    compileSdk 35
+    buildToolsVersion '35.0.0'
+
+    sourceSets.main.manifest.srcFile(generatedManifest)
+
+    defaultConfig {
+        applicationId 'lk.agriconnect.app'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+tasks.named('preBuild').configure {
+    dependsOn('prepareAppManifest')
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8
+    }
+}

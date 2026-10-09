@@ -1,55 +1,71 @@
-# AgriConnect final app source
+# AgriConnect Android app
 
-This is the only app source folder in the final delivery. Open it in Android Studio with **File → Open**. Reports, team responsibilities, testing evidence and simulated evaluation records are in sibling folders. Start with `../00_START_HERE.html` for all final links.
+AgriConnect is the IT3060 HCI Group WE.3.1-154 agricultural marketplace demonstration. It provides three login roles: **buyer**, **farmer** and **delivery rider**. Kotlin hosts the bundled HTML/CSS/JavaScript interface in Android WebView; SQLite stores data on the device. The implementation and initial evidence were prepared with AI assistance. Each team member must review, understand and document work they actually perform.
 
-## Screens and source
+## Open and run
 
-- `app/src/main/assets/app.js`: screen functions and interaction handlers.
-- `app/src/main/assets/app.css`: appearance and responsive layout.
-- `app/src/main/assets/domain.js`: role permissions, validation, stored-data CRUD and order rules.
-- `app/src/main/java/lk/agriconnect/app/MainActivity.kt`: Kotlin WebView host, secure local asset loading and SQLite persistence.
-- `app/src/main/assets/index.html`: working browser preview; open it in Chrome/Edge.
-- `../AgriConnect_Screen_Previews/index.html`: 40 captured screens/states, role filters and source references.
+1. Clone this repository with GitHub Desktop, or open the selected local folder in Android Studio using **File → Open**. Select the folder containing `settings.gradle`.
+2. Select **JDK 21** under **File → Settings → Build, Execution, Deployment → Build Tools → Gradle → Gradle JDK**. Then sync. Gradle 8.13 in this project does not run on Java 25.
+3. Ensure SDK **Platform 35** and **Build-Tools 35.0.0** are installed. Initial dependency resolution needs Internet.
+4. Use **Tools → Device Manager** to start an Android 15 / API 35 virtual phone. The prepared computer already has **AgriConnect API 35**.
+5. Select **app** and the virtual phone in the toolbar, then click **Run ▶** or press **Shift+F10**. Open **Running Devices** to see the app in Android Studio.
 
-This is a Kotlin-hosted hybrid Android app. Android Studio's Compose/XML preview does not render its HTML screens. Use the gallery/browser preview or run the APK on a phone/emulator and open Running Devices. Browser data and native Android data are separate. There is no standard Android Gradle green Run configuration in this delivery.
+The prepared computer uses Java 21 from `C:\Users\nimna\Documents\Codex\2026-10-08\we-have-to-complete-assignmet-3\work\java21\jdk-21.0.12.1+1`, and its virtual phone uses the system image under that workspace's `work/android-image-35`. Keep those local tool folders if reusing the prepared configuration. Other computers should install/select their own JDK and download their own emulator image. SDK paths, IDE settings and caches are ignored by Git.
 
-## Build and install
+This is a WebView app; Compose/XML Preview does not render its HTML screens. Use the live emulator or open `app/src/main/assets/index.html` in a browser. Browser preview data and Android data are separate.
 
-The final signed APK is already present as `AgriConnect.apk`; rebuilding is unnecessary for installation. This computer has Android SDK platform 35, build-tools 37.0.0, Android Studio's JBR/Kotlin tools and the Python runtime needed by the offline build. In the Android Studio terminal, from this folder:
+## APK and demonstration
 
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-.\build.ps1 -SdkPath 'C:\Users\nimna\AppData\Local\Android\Sdk'
-```
+The current installable demonstration APK is **AgriConnect.apk**. In Android Studio, generate a fresh one with **Build → Generate App Bundles or APKs → Generate APKs** (older versions: **Build APK(s)**). It appears at `app/build/outputs/apk/debug/app-debug.apk`. Generate APKs provides the installable file; the normal Run action may create a `testOnly` APK.
 
-On a different computer, supply that computer's real `-SdkPath`, `-StudioPath` and `-PythonPath` values. The script records missing dependencies. Do not delete `.idea`, the app resources or scripts; they support code inspection/building. Private signing keys and generated build files are excluded from this ZIP.
+The included APK has a verified Android debug-key v2 signature and ZIP alignment. It was installed directly on the API 35 emulator. It uses a different signing key from the earlier offline APK; a device with that old package may report an incompatible signature. Uninstalling clears local data, so preserve needed information before choosing that route.
 
-If you rebuild without the original signing key, a new demo key is generated. Android may reject `install -r` over the previously signed APK. Prefer the included final APK; uninstalling an old app clears its locally saved data, so preserve needed demonstration data before choosing that route.
+Scroll down on the login page and use the **Buyer**, **Farmer** or **Rider** demo button. Password: **Demo@1234**. Sign out through Profile before switching roles.
 
-For a USB phone with Developer options/USB debugging enabled and its debugging prompt accepted:
+1. Buyer: open Vine tomatoes, add 2 kg and check out using cash on delivery. Total: **LKR 990** (840 produce + 150 delivery).
+2. Farmer: find the same order in Orders and mark it Ready for pickup. Create, edit, pause and delete a demonstration listing.
+3. Rider: accept the ready job, confirm pickup, start delivery and confirm Delivered with cash collection.
+4. Buyer: read Delivered/Collected, save a review and test support requests. Close and reopen the Android app; saved records remain.
 
-```powershell
-& "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" devices
-& "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" install -r .\AgriConnect.apk
-& "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" shell am start -n lk.agriconnect.app/.MainActivity
-```
+## Source locations
 
-You can also transfer the APK and install it from the phone's Files app. After installing, use Android Studio's Running Devices panel if the phone supports mirroring. Native launch and close/reopen persistence must be checked on an actual device or emulator; that check has not been observed in the prepared evidence.
+| File | Purpose |
+|---|---|
+| `app/src/main/assets/app.js` | Role screens and interaction handlers |
+| `app/src/main/assets/app.css` | Visual design and responsive layout |
+| `app/src/main/assets/domain.js` | Permissions, CRUD, validation and order rules |
+| `app/src/main/java/lk/agriconnect/app/MainActivity.kt` | Android WebView, trusted local assets and SQLite bridge |
+| `app/src/main/AndroidManifest.xml` | Source manifest shared with the offline build |
+| `app/build.gradle` | Android configuration and source-manifest adaptation |
 
-## Demo and verification
+## Test evidence
 
-Use Buyer/Farmer/Rider demo buttons, password **Demo@1234**. Buyer orders 2 kg Vine tomatoes for LKR 990, farmer marks the same order Ready, then rider accepts and completes it with cash collection. Sign out between roles and use the same phone. Try listing create/read/update/delete and support create/read/update/withdraw. The full member demonstration is in `../Team/MEMBER_WORKLOAD_AND_CRUD.md`.
+The recorded checks are **38 service cases**, **15 browser checks**, **10 member CRUD checks** and **8 installed Android emulator checks**, all passing. `tests/evidence` contains the original execution records, APK metadata and nine native emulator screenshots. Native NT01-NT08 cover login, checkout, support/listing CRUD, the three-role order, reviews and SQLite persistence after a complete process restart. The delivered APK matches the installed package hash. This is agent-executed automated evidence; participant sessions and physical-phone testing are separate.
 
-38 service tests, 15 browser checks and 10 member CRUD checks passed in the saved `../Testing` evidence. To repeat service checks with Node 20 or newer:
+Service checks with Node 20+:
 
 ```powershell
 node --test tests/domain.test.cjs
 ```
 
-Browser tests require Playwright and Chrome. Set `PLAYWRIGHT_MODULE` to an available Playwright package and `CHROME_PATH` to Chrome if it is not installed at the default path. Set `APP_URL` to the browser preview URL, then run `node tests/browser.test.cjs` or `node tests/member-crud.test.cjs`. On this prepared computer the available package path is `C:\Users\nimna\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules\playwright`. Direct file preview is supported, for example `APP_URL=file:///C:/actual/path/AgriConnect_AndroidStudio/app/src/main/assets/index.html`. Repeated browser checks create an `evidence` folder inside this source folder; the saved final delivery evidence is separately in `../Testing`.
+Browser tests need Playwright and Chrome. Set `PLAYWRIGHT_MODULE`, `CHROME_PATH` and `APP_URL` as needed. Native checks require the running debug app at its login screen, ADB and Playwright Android support. They create a demonstration order without clearing data:
 
-## Implementation scope
+```powershell
+$env:ADB_PATH='C:\actual\Android\Sdk\platform-tools\adb.exe'
+$env:PLAYWRIGHT_MODULE='C:\actual\node_modules\playwright'
+node tests/native-android.test.cjs
+```
 
-Native Android persists separate JSON entity tables in SQLite through atomic transactions. Browser preview uses localStorage. Passwords use per-account salts and PBKDF2-HMAC-SHA256 with 120,000 iterations. Role and record ownership rules restrict operations. Order snapshots retain purchased prices, checkout rechecks stock, and cancellation preserves the record and restores stock once.
+Set `ANDROID_SERIAL` if the device is not `emulator-5554`. Ensure enough tomato stock for a new 2 kg order. The standard Gradle command is `gradlew.bat assembleDebug` with a valid JDK 21 and SDK configuration. The restricted command environment failed in AAPT2 linking during preparation; the actual Android Studio build succeeded. `build.ps1` retains the original offline SDK-tool route.
 
-One farmer per order is enforced. Different devices do not synchronize. Demo payment is simulated; cash collection is a local status. Verification remains Pending, support is local, delivery progress is manual and Sinhala translation is partial. The report explains these deviations and limitations.
+## Team contributions and submission
+
+See **CONTRIBUTING.md** for the approved role allocation and each member's own commit workflow. The initial import/setup commits record repository preparation under the repository owner's configured identity. They do not establish that all four members independently implemented their assigned interfaces. Future members should commit only changes or reviews they actually perform through their own accounts.
+
+To display recorded author history, use GitHub Desktop's **History** tab, the GitHub repository's commits view, or the read-only `tests/show-history.ps1` helper.
+
+The final report, editable Word file, screen gallery and simulated evaluation examples are delivered in the separate final ZIP. This repository contains the working app, APK and functional evidence.
+
+## Scope
+
+Orders are shared between roles on one device. Different phones do not synchronize. Passwords are salted PBKDF2-HMAC-SHA256 hashes; role/ownership checks protect local actions. Orders snapshot purchased prices, recheck stock and restore stock once on cancellation. One farmer per order is enforced. Demo payments are simulated; cash collection is a local status; no real payment, live GPS or remote support service is connected. Verification stays Pending, and Sinhala translation is partial. The final report documents these deviations.

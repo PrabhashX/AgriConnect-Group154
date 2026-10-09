@@ -7,3 +7,8 @@ local.properties
 *.jks
 node_modules/
 test-results/
+
+.gradle/
+.kotlin/
+local.properties
+app/build/
