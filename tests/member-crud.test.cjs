@@ -1,4 +1,4 @@
-/* Actual UI CRUD audit. These automated checks are not student authorship or participant evidence. */
+
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');const path=require('node:path');
