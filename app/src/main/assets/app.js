@@ -3,7 +3,7 @@
  const $=id=>document.getElementById(id), esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const storage={load:()=>typeof NativeStore!=='undefined'?NativeStore.load():localStorage.getItem('agriconnect-v1'),save:s=>{if(typeof NativeStore!=='undefined')NativeStore.save(s);else localStorage.setItem('agriconnect-v1',s);}};
  const service=await new AgriDomain.Service(storage).init();window.agriService=service;
- let page='login',selectedRole='buyer',registering=false,activeId=null,qty=1,query='',category='All',sort='name',onlySaved=false,compare=[],lang=localStorage.getItem('agri-language')||'en',stack=[];
+ let page='login',selectedRole='byer',registering=false,activeId=null,qty=1,query='',category='All',sort='name',onlySaved=false,compare=[],lang=localStorage.getItem('agri-language')||'en',stack=[];
  const words={si:{Home:'මුල් පිටුව',Basket:'කූඩය',Orders:'ඇණවුම්',Support:'සහාය',Profile:'පැතිකඩ',Listings:'නිෂ්පාදන',Deliveries:'බෙදාහැරීම්',Buyer:'ගැනුම්කරු',Farmer:'ගොවියා',Rider:'බෙදාහැරීම්කරු',Save:'සුරකින්න',Back:'ආපසු',Search:'සොයන්න','Sign in':'පිවිසෙන්න','Sign out':'ඉවත් වන්න','Add to basket':'කූඩයට එක් කරන්න','Fresh from the farm.':'ගොවිපළෙන් නැවුම්ව.',All:'සියල්ල','My listings':'මගේ නිෂ්පාදන','Delivery jobs':'බෙදාහැරීම් කාර්යයන්'}};
  const t=s=>lang==='si'?(words.si[s]||s):s;
  const money=n=>'LKR '+Number(n).toLocaleString('en-LK',{minimumFractionDigits:0,maximumFractionDigits:2});
