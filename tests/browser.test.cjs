@@ -1,4 +1,4 @@
-/* End-to-end tests of the exact bundled Android UI, executed in mobile Chrome. */
+
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');const path=require('node:path');

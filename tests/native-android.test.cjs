@@ -1,7 +1,4 @@
-/* Agent-executed Android emulator checks. These are not participant sessions.
- * Requires an already running debug build, ADB and Playwright Android support.
- * Creates a demonstration order on the selected device; does not clear its data.
- */
+
 const {_android}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
