@@ -40,7 +40,7 @@
   if(u.role==='buyer'&&o.status==='Placed')return {label:'Cancel order',action:'cancelOrder',style:'danger'};
   if(u.role==='farmer'&&o.status==='Placed')return {label:'Mark ready for pickup',action:'advance',style:''};
   if(u.role==='rider'&&o.riderId===u.id){
-   const labels={'Assigned':'Confirm pickup','Picked up':'Start delivery','Out for delivery':'Confirm delivered'};
+   const labels={'Assigned':'Confirm pickup','Pcked up':'Start delivery','Out for delivery':'Confirm delivered'};
    if(labels[o.status])return {label:labels[o.status],action:'advance',style:''};
   }
   return null;
