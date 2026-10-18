@@ -90,17 +90,3 @@
   else if(a==='verification')go('verification');else if(a==='withdrawVerification'){service.withdrawVerification();render();toast('Verification request withdrawn.');}
   else if(a==='deleteReview'){if(await confirmAction('Delete your review?','You can write another review later.')){service.deleteReview(id);render();toast('Review deleted.');}}
  }catch(err){toast(err.message);b.disabled=false;}});
- document.addEventListener('change',e=>{try{if(e.target.id==='productQty'){qty=Number(e.target.value);if(!Number.isFinite(qty)||qty<=0){qty=1;throw new Error('Enter a positive quantity.');}render();}else if(e.target.dataset.cart){service.setCart(e.target.dataset.cart,e.target.value);render();}else if(e.target.id==='sortSelect'){sort=e.target.value;render();}}catch(err){toast(err.message);render();}});
- document.addEventListener('submit',async e=>{e.preventDefault();const f=e.target,data=Object.fromEntries(new FormData(f).entries()),err=f.querySelector('.formerror'),submit=f.querySelector('[type=submit],.btn');if(submit)submit.disabled=true;try{
-  if(f.id==='authForm'){if(registering)await service.register({...data,role:selectedRole});else await service.login(data.email,data.password,selectedRole);page=defaultPage();stack=[];render();window.scrollTo(0,0);}
-  else if(f.id==='searchForm'){query=data.query.trim();render();}
-  else if(f.id==='checkoutForm'){const o=service.checkout(data.address,data.payment,data.note);go('confirmation',o.id);toast('Order saved successfully.');}
-  else if(f.id==='productForm'){service.saveProduct({...data,active:!!data.active},activeId);page='listings';stack=[];render();toast('Listing saved.');}
-  else if(f.id==='profileForm'){service.updateProfile(data);render();toast('Profile saved.');}
-  else if(f.id==='ticketForm'){service.saveTicket(data,page==='editTicket'?activeId:null);page='support';stack=[];render();toast('Support request saved.');}
-  else if(f.id==='verificationForm'){service.requestVerification(data.farm,data.district);render();toast('Verification request saved; pending review.');}
-  else if(f.id==='noteForm'){service.updateOrderNote(activeId,data.note);render();toast('Delivery instructions saved.');}
-  else if(f.id==='reviewForm'){service.review(activeId,data.rating,data.text);render();toast('Review saved.');}
- }catch(x){if(err){err.textContent=x.message;err.classList.add('visible');err.scrollIntoView({block:'nearest'});}else toast(x.message);if(submit)submit.disabled=false;}});
- render();
-})().catch(e=>{document.getElementById('app').innerHTML='<main class="page"><h1>Unable to open AgriConnect</h1><p>Please restart the app. If this continues, contact your group with this message.</p><p id="bootError"></p></main>';document.getElementById('bootError').textContent=e.message;});
